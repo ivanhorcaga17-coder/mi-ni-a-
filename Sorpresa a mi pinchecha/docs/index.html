@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Para mi vida — Sorpresa</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="monkey">🐒</div>
+
+    <div class="card">
+        <div class="left">
+            <div class="tag">
+                <span class="icon">🐒</span>
+                <span>Para mi vida</span>
+            </div>
+
+            <h1>Para ti, mi vida</h1>
+            <h2>Mi calma, mi risa, mi siempre.</h2>
+
+            <div class="text-block">
+                <p>
+                    Cada momento a tu lado convierte lo cotidiano en algo maravilloso. Gracias por ser mi
+                    refugio, mi cómplice y mi sonrisa eterna.
+                </p>
+            </div>
+
+            <div class="counter">
+                <div class="counter-label">Tiempo contigo desde el 15/04/2026</div>
+                <div class="counter-value" id="counter">Calculando...</div>
+            </div>
+
+            <div class="button-area">
+                <button class="play-btn" id="playButton">
+                    <span class="icon">▶️</span>
+                    <span>Escucha esto, mi vida</span>
+                </button>
+                <button class="play-btn" id="openGameBtn" style="margin-left:10px;background:linear-gradient(90deg,#ff6b8a,#ff8fb3);box-shadow:0 10px 30px rgba(255,107,138,0.18)">
+                    <span class="icon">💘</span>
+                    <span>Jugar: Atrapa corazones</span>
+                </button>
+                <div class="hint">Sube el volumen. Es solo para ti. 💖</div>
+            </div>
+
+            <!-- Audio: coloca tu archivo en docs/audio/audio.mp3 (nombre exacto: audio.mp3) -->
+            <audio id="audioPlayer" src="audio/audio.mp3" preload="none"></audio>
+        </div>
+
+        <div class="right">
+            <div class="photo-wrapper">
+              
+                <div class="gallery" id="gallery">
+                    <div class="gallery-display" id="galleryDisplay">
+                        <img id="galleryImage" src="" alt="Foto" />
+                        <div class="gallery-caption" id="galleryCaption">Descripción bonita aquí</div>
+                    </div>
+
+                    <div class="gallery-controls">  
+                        <button id="prevBtn" class="ctrl">‹</button>
+                        <div class="dots" id="galleryDots"></div>
+                        <button id="nextBtn" class="ctrl">›</button>
+                    </div>
+
+                    <div class="gallery-categories">
+                        <button class="cat-btn" data-cat="con-beibi">Con beibi</button>
+                        <button class="cat-btn active" data-cat="juntos">Juntos</button>
+                    </div>
+                </div>
+
+                <div class="overlay"></div>
+                <div class="corner-tag">
+                    <span class="icon">💖</span>
+                    <span>Mi vida</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <!-- Minijuego modal -->
+        <div id="gameModal" class="game-modal" aria-hidden="true">
+            <div class="game-box">
+                <button id="closeGame" class="game-close">✕</button>
+                <h3>Atrapa corazones</h3>
+                <p>Haz clic en tantos corazones como puedas en 20 segundos.</p>
+                <div class="game-info">
+                    <div>Tiempo: <span id="gameTimer">20</span>s</div>
+                    <div>Puntos: <span id="gameScore">0</span></div>
+                </div>
+                <div id="gameArea" class="game-area" tabindex="0"></div>
+                <div class="game-controls">
+                    <button id="startGame" class="play-btn">Empezar</button>
+                    <button id="resetGame" class="play-btn" style="background:#444">Reiniciar</button>
+                </div>
+                <div id="gameResult" class="game-result" aria-live="polite"></div>
+            </div>
+        </div>
+        <script src="js/main.js"></script>
+</body>
+</html>
