@@ -11,7 +11,7 @@ function updateCounter() {
   const minutes = Math.floor(minutesTotal % 60);
   const el = document.getElementById('counter');
   if (el) {
-    el.textContent = `${days} días, ${hours} horas y ${minutes} minutos contigo 💖`;
+    el.textContent = `${days} días, ${hours} horas y ${minutes} minutos contigo 💙`;
   }
 }
 
@@ -62,12 +62,12 @@ if (playButton && audioPlayer) {
   });
 }
 
-// ⭐ RUTAS CORREGIDAS: TODAS CON "web/imagenes/"
+// ⭐ RUTAS CORREGIDAS (añadido "web/" y quitados espacios)
 const galleryConfig = {
   'con-beibi': [
-    { base: 'web/imagenes/con-beibis/con-beibi1', caption: 'Soñamos con este momento: aquí imaginamos nuestro futuro con pequeños. Nombres que nos gustan: Alan, Iván (chicos) y Atenea, Laura (chicas).' },
-    { base: 'web/imagenes/con-beibis/con-beibi 2', caption: 'Imaginando risas en el parque, abrazos y noches contando estrellas.' },
-    { base: 'web/imagenes/con-beibis/con-beibi 3', caption: 'Pequeños pasos, grandes sueños — cuando podamos, será nuestro mejor plan.' }
+    { base: 'web/imagenes/con-beibis/con-beibi1', caption: 'Soñamos con este momento: aquí imaginamos nuestro futuro con pequeños.' },
+    { base: 'web/imagenes/con-beibis/con-beibi2', caption: 'Imaginando risas en el parque, abrazos y noches contando estrellas.' },
+    { base: 'web/imagenes/con-beibis/con-beibi3', caption: 'Pequeños pasos, grandes sueños — cuando podamos, será nuestro mejor plan.' }
   ],
   'juntos': [
     { base: 'web/imagenes/juntos/juntos', caption: 'Uno de nuestros momentos favoritos, juntos y felices.' },
@@ -191,7 +191,7 @@ galleryImage && galleryImage.addEventListener('click', ()=> openModal(galleryIma
 renderGallery();
 startAutoplay();
 
-// --- Minijuego: Atrapa corazones ---
+// --- Minijuego ---
 const openGameBtn = document.getElementById('openGameBtn');
 const gameModal = document.getElementById('gameModal');
 const closeGame = document.getElementById('closeGame');
