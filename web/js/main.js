@@ -11,7 +11,7 @@ function updateCounter() {
   const minutes = Math.floor(minutesTotal % 60);
   const el = document.getElementById('counter');
   if (el) {
-    el.textContent = `${days} días, ${hours} horas y ${minutes} minutos contigo 💙`;
+    el.textContent = `${days} días, ${hours} horas y ${minutes} minutos contigo 💖`;
   }
 }
 
@@ -62,18 +62,18 @@ if (playButton && audioPlayer) {
   });
 }
 
-// Usar las imágenes encontradas en web/imagenes/* para que funcione inmediatamente
+// ⭐ RUTAS CORREGIDAS: TODAS CON "web/imagenes/"
 const galleryConfig = {
   'con-beibi': [
-    { base: 'imagenes/con-beibis/con-beibi1', caption: 'Soñamos con este momento: aquí imaginamos nuestro futuro con pequeños. Nombres que nos gustan: Alan, Iván (chicos) y Atenea, Laura (chicas).' },
-    { base: 'imagenes/con-beibis/con-beibi 2', caption: 'Imaginando risas en el parque, abrazos y noches contando estrellas.' },
-    { base: 'imagenes/con-beibis/con-beibi 3', caption: 'Pequeños pasos, grandes sueños — cuando podamos, será nuestro mejor plan.' }
+    { base: 'web/imagenes/con-beibis/con-beibi1', caption: 'Soñamos con este momento: aquí imaginamos nuestro futuro con pequeños. Nombres que nos gustan: Alan, Iván (chicos) y Atenea, Laura (chicas).' },
+    { base: 'web/imagenes/con-beibis/con-beibi 2', caption: 'Imaginando risas en el parque, abrazos y noches contando estrellas.' },
+    { base: 'web/imagenes/con-beibis/con-beibi 3', caption: 'Pequeños pasos, grandes sueños — cuando podamos, será nuestro mejor plan.' }
   ],
   'juntos': [
-    { base: 'imagenes/juntos/juntos', caption: 'Uno de nuestros momentos favoritos, juntos y felices.' },
-    { base: 'imagenes/juntos/juntos2', caption: 'Riendo sin prisa, construyendo recuerdos que duran.' },
-    { base: 'imagenes/juntos/juntos3', caption: 'Cada día contigo es un capítulo nuevo que quiero leer siempre.' },
-    { base: 'imagenes/juntos/juntos4', caption: 'Momentos simples que valen para siempre.' }
+    { base: 'web/imagenes/juntos/juntos', caption: 'Uno de nuestros momentos favoritos, juntos y felices.' },
+    { base: 'web/imagenes/juntos/juntos2', caption: 'Riendo sin prisa, construyendo recuerdos que duran.' },
+    { base: 'web/imagenes/juntos/juntos3', caption: 'Cada día contigo es un capítulo nuevo que quiero leer siempre.' },
+    { base: 'web/imagenes/juntos/juntos4', caption: 'Momentos simples que valen para siempre.' }
   ]
 };
 
@@ -90,7 +90,7 @@ const catButtons = document.querySelectorAll('.cat-btn');
 const galleryDisplay = document.getElementById('galleryDisplay');
 
 const PLACEHOLDER_SVG = 'data:image/svg+xml;utf8,' + encodeURIComponent(
-  '<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800"><rect width="100%" height="100%" fill="#071024"/><text x="50%" y="50%" fill="#7fbfff" font-size="28" font-family="Arial,Helvetica,sans-serif" text-anchor="middle">Coloca tus imágenes en /web/img/ (con-beibi, juntos)</text></svg>'
+  '<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800"><rect width="100%" height="100%" fill="#071024"/><text x="50%" y="50%" fill="#7fbfff" font-size="28" font-family="Arial,Helvetica,sans-serif" text-anchor="middle">Coloca tus imágenes en /web/imagenes/ (con-beibi, juntos)</text></svg>'
 );
 
 function testImage(url){
@@ -104,18 +104,10 @@ function testImage(url){
 
 async function resolveImage(base){
   const exts = ['.jpg','.jpeg','.png','.webp','.gif'];
-  const prefixes = ['', 'imagenes/']; 
-  for(const p of prefixes){
-    for(const e of exts){
-      const candidate = p + base + e;
-      if(/^https?:\/\//.test(base)){
-        const ok = await testImage(base);
-        if(ok) return base;
-        break;
-      }
-      const ok = await testImage(candidate);
-      if(ok) return candidate;
-    }
+  for(const e of exts){
+    const candidate = base + e;
+    const ok = await testImage(candidate);
+    if(ok) return candidate;
   }
   return PLACEHOLDER_SVG;
 }
@@ -144,7 +136,7 @@ async function renderGallery(){
   if(currentIndex >= list.length) currentIndex = 0;
 
   const item = list[currentIndex];
-  const src = await resolveImage(item.base || item.src || '');
+  const src = await resolveImage(item.base);
   galleryImage.src = src;
   galleryImage.alt = item.caption || 'Foto';
   galleryCaption.textContent = item.caption || '';
@@ -242,7 +234,6 @@ function spawnHeart(){ if(!gameArea) return; const h = document.createElement('d
   h.style.left = `${x}px`; h.style.top = `${y}px`;
   h.addEventListener('click', ()=>{ gameScore+=1; updateGameUI(); popHeart(h); });
   gameArea.appendChild(h);
-  // fade out after 2.5s if not clicked
   setTimeout(()=>{ if(h.parentNode){ h.style.opacity='0'; setTimeout(()=>h.remove(),300); } },2500);
 }
 
@@ -252,10 +243,7 @@ function clearHearts(){ if(!gameArea) return; gameArea.querySelectorAll('.heart'
 
 function showResult(){ updateGameUI(); if(gameResult) gameResult.textContent = `Has conseguido ${gameScore} ♥. ¡Eres increíble!`; }
 
-// Events
 openGameBtn && openGameBtn.addEventListener('click', openGame);
 closeGame && closeGame.addEventListener('click', closeGameModal);
 startGameBtn && startGameBtn.addEventListener('click', startGame);
 resetGameBtn && resetGameBtn.addEventListener('click', resetGame);
-
-
