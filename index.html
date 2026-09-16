@@ -4,8 +4,12 @@
     <meta charset="UTF-8">
     <title>Para mi vida — Sorpresa</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+
+    <!-- RUTA CORRECTA DEL CSS -->
+    <link rel="stylesheet" href="web/css/style.css">
 </head>
 <body>
     <div class="monkey">🐒</div>
@@ -37,21 +41,27 @@
                     <span class="icon">▶️</span>
                     <span>Escucha esto, mi vida</span>
                 </button>
+
                 <button class="play-btn" id="openGameBtn" style="margin-left:10px;background:linear-gradient(90deg,#ff6b8a,#ff8fb3);box-shadow:0 10px 30px rgba(255,107,138,0.18)">
                     <span class="icon">💘</span>
                     <span>Jugar: Atrapa corazones</span>
                 </button>
+
                 <div class="hint">Sube el volumen. Es solo para ti. 💖</div>
             </div>
-            <audio id="audioPlayer" src="audio/WhatsApp Audio 2026-09-15 at 15.43.54.mp4" preload="none"></audio>
+
+            <!-- RUTA CORRECTA DEL AUDIO -->
+            <audio id="audioPlayer" src="web/audio/WhatsApp Audio 2026-09-15 at 15.43.54.mp4" preload="none"></audio>
         </div>
 
         <div class="right">
             <div class="photo-wrapper">
-              
                 <div class="gallery" id="gallery">
                     <div class="gallery-display" id="galleryDisplay">
+
+                        <!-- AQUÍ TU JS PONDRÁ LA IMAGEN -->
                         <img id="galleryImage" src="" alt="Foto" />
+
                         <div class="gallery-caption" id="galleryCaption">Descripción bonita aquí</div>
                     </div>
 
@@ -76,23 +86,25 @@
         </div>
     </div>
 
-        <div id="gameModal" class="game-modal" aria-hidden="true">
-            <div class="game-box">
-                <button id="closeGame" class="game-close">✕</button>
-                <h3>Atrapa corazones</h3>
-                <p>Haz clic en tantos corazones como puedas en 20 segundos.</p>
-                <div class="game-info">
-                    <div>Tiempo: <span id="gameTimer">20</span>s</div>
-                    <div>Puntos: <span id="gameScore">0</span></div>
-                </div>
-                <div id="gameArea" class="game-area" tabindex="0"></div>
-                <div class="game-controls">
-                    <button id="startGame" class="play-btn">Empezar</button>
-                    <button id="resetGame" class="play-btn" style="background:#444">Reiniciar</button>
-                </div>
-                <div id="gameResult" class="game-result" aria-live="polite"></div>
+    <div id="gameModal" class="game-modal" aria-hidden="true">
+        <div class="game-box">
+            <button id="closeGame" class="game-close">✕</button>
+            <h3>Atrapa corazones</h3>
+            <p>Haz clic en tantos corazones como puedas en 20 segundos.</p>
+            <div class="game-info">
+                <div>Tiempo: <span id="gameTimer">20</span>s</div>
+                <div>Puntos: <span id="gameScore">0</span></div>
             </div>
+            <div id="gameArea" class="game-area" tabindex="0"></div>
+            <div class="game-controls">
+                <button id="startGame" class="play-btn">Empezar</button>
+                <button id="resetGame" class="play-btn" style="background:#444">Reiniciar</button>
+            </div>
+            <div id="gameResult" class="game-result" aria-live="polite"></div>
         </div>
-    <script src="js/main.js"></script>
+    </div>
+
+    <!-- RUTA CORRECTA DEL JS -->
+    <script src="web/js/main.js"></script>
 </body>
 </html>
